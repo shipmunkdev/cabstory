@@ -4,6 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   output: 'export',
+  reactStrictMode: true,
   typescript: { ignoreBuildErrors: true },
 };
 
