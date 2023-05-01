@@ -9,6 +9,9 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </head>
       <body>
         {children}
         <Analytics />
