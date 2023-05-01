@@ -1,13 +1,87 @@
 {
   "plugins": ["@typescript-eslint"],
   "extends": [
+    "next",
     "next/core-web-vitals",
+    "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "prettier"
   ],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error"
-  }
+    "@typescript-eslint/no-explicit-any": "error",
+    "import/first": "error",
+    "import/no-cycle": "error",
+    "import/namespace": "error",
+    "import/no-duplicates": "error",
+    "import/no-unresolved": "error",
+    "import/no-self-import": "error",
+    "import/no-unused-modules": "error",
+    "import/no-mutable-exports": "error",
+    "import/no-named-as-default": "error",
+    "import/no-relative-packages": "error",
+    "import/newline-after-import": "error",
+    "import/no-useless-path-segments": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"],
+          "type"
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin", "external"],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": false },
+        "warnOnUnassignedImports": false
+      }
+    ],
+    "import/no-unassigned-import": ["error", { "allow": ["**/*.css"] }],
+    "import/max-dependencies": [
+      "error",
+      { "max": 10, "ignoreTypeImports": true }
+    ],
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        "allowArray": false,
+        "allowArrowFunction": false,
+        "allowAnonymousClass": false,
+        "allowAnonymousFunction": false,
+        "allowCallExpression": false,
+        "allowLiteral": false,
+        "allowObject": false
+      }
+    ],
+    "import/named": "warn",
+    "import/export": "warn",
+    "import/extensions": "off",
+    "import/group-exports": "off",
+    "import/no-relative-parent-imports": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": [
+      "error",
+      {
+        "additionalHooks": "(useElementSize|useIntersect|useMouseEffect|useResizeEffect|useScrollEffect|useThrottleCallback|useThrottleEffect)"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.{ts,tsx,js,jsx}"],
+      "rules": {
+        "jsx-a11y/anchor-is-valid": "off",
+        "@next/next/no-html-link-for-pages": ["error", "apps/website/pages"]
+      }
+    },
+    {
+      "files": ["./pages/**/*.{js,jsx,ts,tsx}"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
 }

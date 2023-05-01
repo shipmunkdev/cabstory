@@ -1,4 +1,4 @@
-name: Semantic Release CI
+name: 🔰 Semantic Release CI
 on:
   push:
     branches: [main, develop, beta]
@@ -8,19 +8,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set-up Node.js
+      - name: 🛎️ Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 🔧 Set-up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm install
-      - name: Lint
-        run: npm run lint
-      - name: Build app
-        run: npm run build
-      - name: Semantic release
+          cache: 'yarn'
+      - name: 🧶 Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: 💅 Lint
+        run: yarn run lint
+      - name: 🔨 Build app
+        run: yarn run build
+      - name: 🔰 Semantic release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npm run release
+        run: yarn run release

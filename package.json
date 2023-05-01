@@ -1,17 +1,17 @@
 {
-  "name": "nextjs-boilerplate",
+  "name": "cabstory",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "yarn clean && next lint && next build",
     "commit": "git-cz",
     "dev": "next dev",
-    "postinstall": "husky install",
+    "prepare": "husky install",
     "release": "semantic-release",
-    "start": "next start",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "clean": "rm -rf .next out node_modules && yarn install",
+    "storybook:dev": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
   },
   "dependencies": {
     "@types/node": "18.16.0",
@@ -47,6 +47,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
+    "semantic-release": "^21.0.2",
     "storybook": "^7.0.6"
   },
   "config": {
