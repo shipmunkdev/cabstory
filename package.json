@@ -14,6 +14,12 @@
     "storybook:build": "storybook build"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@fontsource/material-icons": "^4.5.4",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.2",
     "@types/node": "18.16.0",
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",
@@ -36,6 +42,7 @@
     "@storybook/addon-essentials": "^7.0.6",
     "@storybook/addon-interactions": "^7.0.6",
     "@storybook/addon-links": "^7.0.6",
+    "@storybook/addon-styling": "^1.0.5",
     "@storybook/blocks": "^7.0.6",
     "@storybook/nextjs": "^7.0.6",
     "@storybook/react": "^7.0.6",

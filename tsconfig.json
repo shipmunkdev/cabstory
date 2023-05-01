@@ -30,7 +30,6 @@
     "baseUrl": "app",                           /* Base directory to resolve non-absolute module names. */
     "paths": {
       "@cabstory/*": ["*"],                              /* Path aliases */
-      "@components/*": ["components/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"], /* Files to include in compilation. */
