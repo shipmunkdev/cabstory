@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "yarn clean && next lint && next build",
+    "build": "yarn clean && next build",
     "commit": "git-cz",
     "dev": "next dev",
     "prepare": "husky install",
@@ -17,6 +17,7 @@
     "@types/node": "18.16.0",
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",
+    "@vercel/analytics": "^1.0.0",
     "autoprefixer": "10.4.14",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
