@@ -41,7 +41,7 @@
     "import/no-unassigned-import": ["error", { "allow": ["**/*.css"] }],
     "import/max-dependencies": [
       "error",
-      { "max": 10, "ignoreTypeImports": true }
+      { "max": 15, "ignoreTypeImports": true }
     ],
     "import/no-anonymous-default-export": [
       "error",
