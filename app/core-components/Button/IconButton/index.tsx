@@ -1,12 +1,8 @@
-import MuiIconButton, {
-  IconButtonProps as MuiIconButtonProps,
-} from '@mui/material/IconButton';
+import MuiIconButton from '@mui/material/IconButton';
 
-export interface IconButtonStoryProps extends MuiIconButtonProps {
-  children: React.ReactNode;
-}
+import type { IconButtonProps } from '@mui/material/IconButton';
 
-const IconButton = ({ children, ...rest }: IconButtonStoryProps) => (
+const IconButton = ({ children, ...rest }: IconButtonProps) => (
   <MuiIconButton {...rest}>{children}</MuiIconButton>
 );
 
