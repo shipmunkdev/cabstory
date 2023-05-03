@@ -1,10 +1,15 @@
+import Link from 'next/link';
+
 import Button from '@cabstory/core-components/Button';
 
 const Home = () => {
   return (
     <main>
-      <h1>Next.js + TypeScript</h1>
-      <Button>Hello Cabstory</Button>
+      <Link href="/logtrip">
+        <Button variant="contained" color="secondary" size="large">
+          Log Trip
+        </Button>
+      </Link>
     </main>
   );
 };
