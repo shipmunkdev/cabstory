@@ -4,9 +4,10 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 
 export type InvoiceProps = {
-  baseFare: number;
   fareType: string;
-  airportFee: number;
+  baseFare: number;
+  cashPayment: boolean;
+  airportFee: boolean;
   bridgeFee: number;
   tips: number;
   subTotal: number;
@@ -18,8 +19,9 @@ const capitalizeFirstLetter = (string: string) => {
 };
 
 const InvoiceView = ({
-  baseFare,
   fareType,
+  baseFare,
+  cashPayment,
   airportFee,
   bridgeFee,
   tips,
@@ -31,8 +33,9 @@ const InvoiceView = ({
     <>
       <Typography variant="h6" gutterBottom>
         Fare Invoice{' '}
+        {<Chip label={cashPayment ? 'Cash' : 'Credit'} color="primary" />}
         {fareType ? (
-          <Chip label={capitalizeFirstLetter(fareType)} color="primary" />
+          <Chip label={capitalizeFirstLetter(fareType)} color="secondary" />
         ) : null}
       </Typography>
       <Grid container spacing={3}>
@@ -41,7 +44,9 @@ const InvoiceView = ({
           {fareType === 'long' ? (
             <Typography variant="h6">Out of Town:</Typography>
           ) : null}
-          <Typography variant="h6">Airport Fee:</Typography>
+          {airportFee ? (
+            <Typography variant="h6">Airport Fee:</Typography>
+          ) : null}
           <Typography variant="h6">Bridge Fee:</Typography>
           <Typography variant="h6">Tips:</Typography>
           <Typography variant="h6">Sub Total:</Typography>
@@ -52,7 +57,7 @@ const InvoiceView = ({
           {fareType === 'long' ? (
             <Typography variant="h6">${baseFare * 0.5}</Typography>
           ) : null}
-          <Typography variant="h6">${airportFee}</Typography>
+          {airportFee ? <Typography variant="h6">$5.50</Typography> : null}
           <Typography variant="h6">${bridgeFee}</Typography>
           <Typography variant="h6">${tips}</Typography>
           <Typography variant="h6">${subTotal}</Typography>

@@ -1,7 +1,7 @@
 const generateFareData = ({
   base = '',
   type = 'regular',
-  airportFee = 5.5,
+  airportFee = false,
   bridgeFee = '',
   grandTotal = '',
 } = {}) => {
@@ -15,7 +15,10 @@ const generateFareData = ({
     eqTotal += parseFloat(bridgeFee);
   }
   // add flat airport fee to every trip
-  eqTotal += airportFee;
+  if (airportFee) {
+    eqTotal += 5.5;
+  }
+
   // calculate subtotal by adding tips to eqTotal
   const subTotal: number = eqTotal;
   // calculate tips by subtracting subTotal from grandTotalFare

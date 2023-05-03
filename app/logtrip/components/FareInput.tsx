@@ -13,10 +13,14 @@ import React from 'react';
 type FareInputProps = {
   fareType: string;
   meterBaseFare: string;
+  cashPayment: boolean;
+  airportFee: boolean;
   bridgeFee: string;
   grandTotalFare: string;
   setFareType: (fareType: string) => void;
   setMeterBaseFare: (meterBaseFare: string) => void;
+  setCashPayment: (cashPayment: boolean) => void;
+  setAirportFee: (airportFee: boolean) => void;
   setBridgeFee: (bridgeFee: string) => void;
   setGrandTotalFare: (grandTotalFare: string) => void;
   handleCalculate: () => void;
@@ -25,10 +29,14 @@ type FareInputProps = {
 const FareInput = ({
   fareType,
   meterBaseFare,
+  cashPayment,
+  airportFee,
   bridgeFee,
   grandTotalFare,
   setFareType,
   setMeterBaseFare,
+  setCashPayment,
+  setAirportFee,
   setBridgeFee,
   setGrandTotalFare,
   handleCalculate,
@@ -88,8 +96,26 @@ const FareInput = ({
       </FormControl>
       {/* Cash Payment Switch */}
       <FormGroup>
-        <FormControlLabel control={<Switch defaultChecked />} label="Cash" />
+        <FormControlLabel
+          control={
+            <Switch
+              checked={airportFee}
+              onChange={(e) => setAirportFee(e.target.checked)}
+            />
+          }
+          label="Airport Fee"
+        />
+        <FormControlLabel
+          control={
+            <Switch
+              checked={cashPayment}
+              onChange={(e) => setCashPayment(e.target.checked)}
+            />
+          }
+          label="Cash"
+        />
       </FormGroup>
+
       {/* Buttons */}
       <Grid container direction={'row'} spacing={2}>
         <Grid item xs={12}>

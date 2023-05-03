@@ -10,15 +10,17 @@ import generateFareData from './utils/calculateFare';
 const FareCalculatorView = () => {
   const [fareType, setFareType] = useState('short');
   const [meterBaseFare, setMeterBaseFare] = useState('');
+  const [cashPayment, setCashPayment] = useState(false);
+  const [airportFee, setAirportFee] = useState(false);
   const [bridgeFee, setBridgeFee] = useState('');
   const [grandTotalFare, setGrandTotalFare] = useState('');
-  const [airportFee] = useState(5.5);
   const [, setTips] = useState(0);
   const [, setSubTotal] = useState(0);
   const [data, setData] = useState({
-    baseFare: 0,
     fareType: '',
-    airportFee: 0,
+    baseFare: 0,
+    cashPayment: false,
+    airportFee: false,
     bridgeFee: 0,
     tips: 0,
     subTotal: 0,
@@ -27,8 +29,8 @@ const FareCalculatorView = () => {
 
   const handleCalculate = () => {
     const [subTotal, tips] = generateFareData({
-      base: meterBaseFare,
       type: fareType,
+      base: meterBaseFare,
       airportFee: airportFee,
       bridgeFee: bridgeFee,
       grandTotal: grandTotalFare,
@@ -37,8 +39,9 @@ const FareCalculatorView = () => {
     setSubTotal(subTotal);
     setData({
       ...data,
-      baseFare: parseFloat(meterBaseFare),
       fareType: fareType,
+      baseFare: parseFloat(meterBaseFare),
+      cashPayment: cashPayment,
       airportFee,
       bridgeFee: parseFloat(bridgeFee),
       tips: tips,
@@ -58,6 +61,10 @@ const FareCalculatorView = () => {
         setFareType={setFareType}
         meterBaseFare={meterBaseFare}
         setMeterBaseFare={setMeterBaseFare}
+        cashPayment={cashPayment}
+        setCashPayment={setCashPayment}
+        airportFee={airportFee}
+        setAirportFee={setAirportFee}
         bridgeFee={bridgeFee}
         setBridgeFee={setBridgeFee}
         grandTotalFare={grandTotalFare}
