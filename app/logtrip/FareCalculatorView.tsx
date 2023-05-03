@@ -13,7 +13,7 @@ const FareCalculatorView = () => {
   const [fareType, setFareType] = useState('short');
   const [meterBaseFare, setMeterBaseFare] = useState('');
   const [cashPayment, setCashPayment] = useState(false);
-  const [airportFee, setAirportFee] = useState(false);
+  const [checkedAirportFee, setCheckedAirportFee] = useState(false);
   const [bridgeFee, setBridgeFee] = useState('');
   const [grandTotalFare, setGrandTotalFare] = useState('');
   const [, setTips] = useState(0);
@@ -23,7 +23,7 @@ const FareCalculatorView = () => {
     baseFare: 0,
     longTripBonus: 0,
     cashPayment: false,
-    airportFee: false,
+    airportFee: 0,
     bridgeFee: 0,
     tips: 0,
     subTotal: 0,
@@ -34,7 +34,7 @@ const FareCalculatorView = () => {
     const [subTotal, tips] = generateFareData({
       type: fareType,
       base: meterBaseFare,
-      airportFee: airportFee,
+      airportFee: checkedAirportFee,
       bridgeFee: bridgeFee,
       grandTotal: grandTotalFare,
     });
@@ -46,7 +46,7 @@ const FareCalculatorView = () => {
       baseFare: parseFloat(meterBaseFare),
       longTripBonus: fareType === 'long' ? Number(meterBaseFare) * 0.5 : 0,
       cashPayment: cashPayment,
-      airportFee,
+      airportFee: checkedAirportFee ? 5.5 : 0,
       bridgeFee: parseFloat(bridgeFee),
       tips: tips,
       subTotal,
@@ -64,20 +64,19 @@ const FareCalculatorView = () => {
         fareType={fareType}
         meterBaseFare={meterBaseFare}
         cashPayment={cashPayment}
-        airportFee={airportFee}
+        checkedAirportFee={checkedAirportFee}
         bridgeFee={bridgeFee}
         grandTotalFare={grandTotalFare}
         setFareType={setFareType}
         setMeterBaseFare={setMeterBaseFare}
         setCashPayment={setCashPayment}
-        setAirportFee={setAirportFee}
+        setCheckedAirportFee={setCheckedAirportFee}
         setBridgeFee={setBridgeFee}
         setGrandTotalFare={setGrandTotalFare}
         handleCalculate={handleCalculate}
       />
       <Divider />
       {/* Fare Invoice */}
-
       <InvoiceView {...data} />
     </Container>
   );

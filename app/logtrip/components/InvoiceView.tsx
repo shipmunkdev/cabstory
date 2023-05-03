@@ -9,7 +9,7 @@ export type InvoiceProps = {
   baseFare: number;
   longTripBonus: number;
   cashPayment: boolean;
-  airportFee: boolean;
+  airportFee: number;
   bridgeFee: number;
   tips: number;
   subTotal: number;
@@ -74,7 +74,9 @@ const InvoiceView = ({
               ${longTripBonus}
             </Typography>
           ) : null}
-          {airportFee ? <Typography>$5.50</Typography> : null}
+          {airportFee && airportFee !== 0 ? (
+            <Typography>${airportFee}</Typography>
+          ) : null}
           <Typography>${bridgeFee}</Typography>
           <Typography color={negativeRed(subTotal)}>${subTotal}</Typography>
           <Typography color={negativeRed(tips)}>${tips}</Typography>

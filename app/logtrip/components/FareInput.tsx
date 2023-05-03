@@ -14,13 +14,13 @@ type FareInputProps = {
   fareType: string;
   meterBaseFare: string;
   cashPayment: boolean;
-  airportFee: boolean;
+  checkedAirportFee: boolean;
   bridgeFee: string;
   grandTotalFare: string;
   setFareType: (fareType: string) => void;
   setMeterBaseFare: (meterBaseFare: string) => void;
   setCashPayment: (cashPayment: boolean) => void;
-  setAirportFee: (airportFee: boolean) => void;
+  setCheckedAirportFee: (checkedAirportFee: boolean) => void;
   setBridgeFee: (bridgeFee: string) => void;
   setGrandTotalFare: (grandTotalFare: string) => void;
   handleCalculate: () => void;
@@ -30,13 +30,13 @@ const FareInput = ({
   fareType,
   meterBaseFare,
   cashPayment,
-  airportFee,
+  checkedAirportFee,
   bridgeFee,
   grandTotalFare,
   setFareType,
   setMeterBaseFare,
   setCashPayment,
-  setAirportFee,
+  setCheckedAirportFee,
   setBridgeFee,
   setGrandTotalFare,
   handleCalculate,
@@ -97,8 +97,8 @@ const FareInput = ({
         <FormControlLabel
           control={
             <Switch
-              checked={airportFee}
-              onChange={(e) => setAirportFee(e.target.checked)}
+              checked={checkedAirportFee}
+              onChange={(e) => setCheckedAirportFee(e.target.checked)}
             />
           }
           label="Airport Fee ($5.50)"
