@@ -71,6 +71,7 @@ const FareInput = ({
           value={bridgeFee}
           onChange={(e) => setBridgeFee(e.target.value)}
           InputLabelProps={{ shrink: true }}
+          required
         />
       </FormControl>
       {/* Grand Total Input */}

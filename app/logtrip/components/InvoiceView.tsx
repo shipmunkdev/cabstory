@@ -36,10 +36,10 @@ const InvoiceView = ({
         ) : null}
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={6} sx={{ textAlign: 'left', fontWeight: 'bold' }}>
+        <Grid item xs={8} sx={{ textAlign: 'left', fontWeight: 'bold' }}>
           <Typography variant="h6">Base Meter Fare:</Typography>
           {fareType === 'long' ? (
-            <Typography variant="h6">Out of Town Multiplier:</Typography>
+            <Typography variant="h6">Out of Town:</Typography>
           ) : null}
           <Typography variant="h6">Airport Fee:</Typography>
           <Typography variant="h6">Bridge Fee:</Typography>
@@ -47,7 +47,7 @@ const InvoiceView = ({
           <Typography variant="h6">Sub Total:</Typography>
           <Typography variant="h6">Grand Total:</Typography>
         </Grid>
-        <Grid item xs={6} sx={{ textAlign: 'right', fontWeight: 'bold' }}>
+        <Grid item xs={4} sx={{ textAlign: 'right', fontWeight: 'bold' }}>
           <Typography variant="h6">${baseFare}</Typography>
           {fareType === 'long' ? (
             <Typography variant="h6">${baseFare * 0.5}</Typography>
