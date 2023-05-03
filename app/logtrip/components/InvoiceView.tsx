@@ -25,7 +25,6 @@ const negativeRed = (number: number) => {
 const now = new Date();
 const date = now.toLocaleDateString();
 const time = now.toLocaleTimeString();
-console.log(`Date: ${date}, Time: ${time}`);
 
 const InvoiceView = ({
   fareType,
@@ -37,7 +36,6 @@ const InvoiceView = ({
   subTotal,
   grandTotal,
 }: InvoiceProps) => {
-  console.log(JSON.stringify(baseFare));
   return (
     <>
       <Typography variant="h6" gutterBottom>
