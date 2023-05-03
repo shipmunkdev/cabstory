@@ -45,9 +45,7 @@ const FareInput = ({
     <>
       {/* Fare Type Input */}
       <FormControl fullWidth margin="normal">
-        <Typography variant="body1" gutterBottom>
-          Fare Type
-        </Typography>
+        <Typography variant="body1">Fare Type</Typography>
         <ToggleButtonGroup
           value={fareType}
           exclusive
@@ -60,9 +58,7 @@ const FareInput = ({
       </FormControl>
       {/* Meter Base Input */}
       <FormControl fullWidth margin="normal">
-        <Typography variant="body1" gutterBottom>
-          Meter Base Fare
-        </Typography>
+        <Typography variant="body1">Meter Base Fare</Typography>
         <TextField
           id="meter-base-fare"
           type="number"
@@ -74,9 +70,7 @@ const FareInput = ({
       </FormControl>
       {/* Bridge Fee Input */}
       <FormControl fullWidth margin="normal">
-        <Typography variant="body1" gutterBottom>
-          Bridge Fee
-        </Typography>
+        <Typography variant="body1">Bridge Fee</Typography>
         <TextField
           id="bridge-fee"
           type="number"
@@ -88,9 +82,7 @@ const FareInput = ({
       </FormControl>
       {/* Grand Total Input */}
       <FormControl fullWidth margin="normal">
-        <Typography variant="body1" gutterBottom>
-          Grand Total
-        </Typography>
+        <Typography variant="body1">Grand Total</Typography>
         <TextField
           id="grand-total-fare"
           type="number"

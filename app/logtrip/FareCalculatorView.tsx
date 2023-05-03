@@ -1,5 +1,6 @@
 'use client';
 
+import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import React, { useState } from 'react';
@@ -20,6 +21,7 @@ const FareCalculatorView = () => {
   const [data, setData] = useState({
     fareType: '',
     baseFare: 0,
+    longTripBonus: 0,
     cashPayment: false,
     airportFee: false,
     bridgeFee: 0,
@@ -42,6 +44,7 @@ const FareCalculatorView = () => {
       ...data,
       fareType: fareType,
       baseFare: parseFloat(meterBaseFare),
+      longTripBonus: fareType === 'long' ? Number(meterBaseFare) * 0.5 : 0,
       cashPayment: cashPayment,
       airportFee,
       bridgeFee: parseFloat(bridgeFee),
@@ -52,30 +55,31 @@ const FareCalculatorView = () => {
   };
 
   return (
-    <>
+    <Container maxWidth="sm">
       <Typography component="h1" variant="h5" gutterBottom>
         Fare Calculator
       </Typography>
       {/* Fare Type Input */}
       <FareInput
         fareType={fareType}
-        setFareType={setFareType}
         meterBaseFare={meterBaseFare}
-        setMeterBaseFare={setMeterBaseFare}
         cashPayment={cashPayment}
-        setCashPayment={setCashPayment}
         airportFee={airportFee}
-        setAirportFee={setAirportFee}
         bridgeFee={bridgeFee}
-        setBridgeFee={setBridgeFee}
         grandTotalFare={grandTotalFare}
+        setFareType={setFareType}
+        setMeterBaseFare={setMeterBaseFare}
+        setCashPayment={setCashPayment}
+        setAirportFee={setAirportFee}
+        setBridgeFee={setBridgeFee}
         setGrandTotalFare={setGrandTotalFare}
         handleCalculate={handleCalculate}
       />
       <Divider />
       {/* Fare Invoice */}
+
       <InvoiceView {...data} />
-    </>
+    </Container>
   );
 };
 
