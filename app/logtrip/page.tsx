@@ -1,9 +1,9 @@
 import React from 'react';
 
-import LogTripForm from './LogTripForm';
+import FareCalculatorView from './FareCalculatorView';
 
 const LogTripView = () => {
-  return <LogTripForm />;
+  return <FareCalculatorView />;
 };
 
 export default LogTripView;
