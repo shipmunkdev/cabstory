@@ -22,6 +22,11 @@ const negativeRed = (number: number) => {
   return number < 0 ? 'red' : 'black';
 };
 
+const now = new Date();
+const date = now.toLocaleDateString();
+const time = now.toLocaleTimeString();
+console.log(`Date: ${date}, Time: ${time}`);
+
 const InvoiceView = ({
   fareType,
   baseFare,
@@ -41,6 +46,9 @@ const InvoiceView = ({
         {fareType ? (
           <Chip label={capitalizeFirstLetter(fareType)} color="secondary" />
         ) : null}
+      </Typography>
+      <Typography variant="h6">
+        {date} {time}
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={8} sx={{ textAlign: 'left', fontWeight: 'bold' }}>
