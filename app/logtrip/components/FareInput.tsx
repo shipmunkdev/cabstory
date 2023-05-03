@@ -44,8 +44,8 @@ const FareInput = ({
   return (
     <>
       {/* Fare Type Input */}
-      <FormControl fullWidth margin="normal">
-        <Typography variant="body1">Fare Type</Typography>
+      <FormControl fullWidth margin="dense">
+        <Typography>Fare Type</Typography>
         <ToggleButtonGroup
           value={fareType}
           exclusive
@@ -57,8 +57,8 @@ const FareInput = ({
         </ToggleButtonGroup>
       </FormControl>
       {/* Meter Base Input */}
-      <FormControl fullWidth margin="normal">
-        <Typography variant="body1">Meter Base Fare</Typography>
+      <FormControl fullWidth margin="dense">
+        <Typography>Meter Base Fare</Typography>
         <TextField
           id="meter-base-fare"
           type="number"
@@ -69,8 +69,8 @@ const FareInput = ({
         />
       </FormControl>
       {/* Bridge Fee Input */}
-      <FormControl fullWidth margin="normal">
-        <Typography variant="body1">Bridge Fee</Typography>
+      <FormControl fullWidth margin="dense">
+        <Typography>Bridge Fee</Typography>
         <TextField
           id="bridge-fee"
           type="number"
@@ -81,8 +81,8 @@ const FareInput = ({
         />
       </FormControl>
       {/* Grand Total Input */}
-      <FormControl fullWidth margin="normal">
-        <Typography variant="body1">Grand Total</Typography>
+      <FormControl fullWidth margin="dense">
+        <Typography>Grand Total</Typography>
         <TextField
           id="grand-total-fare"
           type="number"
@@ -115,17 +115,34 @@ const FareInput = ({
       </FormGroup>
 
       {/* Buttons */}
-      <Grid container direction={'row'} spacing={2}>
-        <Grid item xs={12}>
-          <Button variant="contained" color="primary" onClick={handleCalculate}>
+      <Grid
+        xs={12}
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          margin: '1rem',
+        }}
+      >
+        <Grid item sx={{ width: '30%' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleCalculate}
+            sx={{ width: '100%' }}
+          >
             Calculate
           </Button>
         </Grid>
-        {/* <Grid item xs={12}>
-          <Button variant="contained" color="primary" onClick={handleCalculate}>
+        <Grid item sx={{ width: '25%' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleCalculate}
+            sx={{ width: '100%' }}
+          >
             Submit
           </Button>
-        </Grid> */}
+        </Grid>
       </Grid>
     </>
   );

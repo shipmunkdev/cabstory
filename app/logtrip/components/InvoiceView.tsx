@@ -1,5 +1,6 @@
 import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 
@@ -35,9 +36,9 @@ const InvoiceView = ({
   grandTotal,
 }: InvoiceProps) => {
   return (
-    <>
-      <Typography>Fare Invoice </Typography>
-      <Grid item xs={12}>
+    <Paper variant="outlined" sx={{ padding: '1rem' }}>
+      <Typography variant="h6">Fare Invoice </Typography>
+      <Grid item xs={12} sx={{ marginY: '0.5rem' }}>
         {
           <Chip
             label={cashPayment ? 'Cash' : 'Credit'}
@@ -80,7 +81,7 @@ const InvoiceView = ({
           <Typography>${grandTotal}</Typography>
         </Grid>
       </Grid>
-    </>
+    </Paper>
   );
 };
 
