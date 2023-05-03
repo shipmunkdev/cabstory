@@ -31,7 +31,7 @@ const InvoiceView = ({
     <>
       <Typography variant="h6" gutterBottom>
         Fare Invoice{' '}
-        {fareType === 'long' ? (
+        {fareType ? (
           <Chip label={capitalizeFirstLetter(fareType)} color="primary" />
         ) : null}
       </Typography>
