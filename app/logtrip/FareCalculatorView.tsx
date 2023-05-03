@@ -1,5 +1,6 @@
 'use client';
 
+import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import React, { useState } from 'react';
 
@@ -71,6 +72,7 @@ const FareCalculatorView = () => {
         setGrandTotalFare={setGrandTotalFare}
         handleCalculate={handleCalculate}
       />
+      <Divider />
       {/* Fare Invoice */}
       <InvoiceView {...data} />
     </>

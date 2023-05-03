@@ -60,9 +60,11 @@ const FareInput = ({
       </FormControl>
       {/* Meter Base Input */}
       <FormControl fullWidth margin="normal">
+        <Typography variant="body1" gutterBottom>
+          Meter Base Fare
+        </Typography>
         <TextField
           id="meter-base-fare"
-          label="Meter Base Fare"
           type="number"
           value={meterBaseFare}
           onChange={(e) => setMeterBaseFare(e.target.value)}
@@ -72,9 +74,11 @@ const FareInput = ({
       </FormControl>
       {/* Bridge Fee Input */}
       <FormControl fullWidth margin="normal">
+        <Typography variant="body1" gutterBottom>
+          Bridge Fee
+        </Typography>
         <TextField
           id="bridge-fee"
-          label="Bridge Fee"
           type="number"
           value={bridgeFee}
           onChange={(e) => setBridgeFee(e.target.value)}
@@ -84,9 +88,11 @@ const FareInput = ({
       </FormControl>
       {/* Grand Total Input */}
       <FormControl fullWidth margin="normal">
+        <Typography variant="body1" gutterBottom>
+          Grand Total
+        </Typography>
         <TextField
           id="grand-total-fare"
-          label="Grand Total"
           type="number"
           value={grandTotalFare}
           onChange={(e) => setGrandTotalFare(e.target.value)}
@@ -103,7 +109,7 @@ const FareInput = ({
               onChange={(e) => setAirportFee(e.target.checked)}
             />
           }
-          label="Airport Fee"
+          label="Airport Fee ($5.50)"
         />
         <FormControlLabel
           control={

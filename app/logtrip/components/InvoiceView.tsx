@@ -18,6 +18,10 @@ const capitalizeFirstLetter = (string: string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
+const negativeRed = (number: number) => {
+  return number < 0 ? 'red' : 'black';
+};
+
 const InvoiceView = ({
   fareType,
   baseFare,
@@ -48,20 +52,30 @@ const InvoiceView = ({
             <Typography variant="h6">Airport Fee:</Typography>
           ) : null}
           <Typography variant="h6">Bridge Fee:</Typography>
-          <Typography variant="h6">Tips:</Typography>
           <Typography variant="h6">Sub Total:</Typography>
+          <Typography variant="h6">Tips:</Typography>
           <Typography variant="h6">Grand Total:</Typography>
         </Grid>
         <Grid item xs={4} sx={{ textAlign: 'right', fontWeight: 'bold' }}>
-          <Typography variant="h6">${baseFare}</Typography>
+          <Typography variant="h6" color={negativeRed(baseFare)}>
+            ${baseFare}
+          </Typography>
           {fareType === 'long' ? (
-            <Typography variant="h6">${baseFare * 0.5}</Typography>
+            <Typography variant="h6" color={negativeRed(baseFare * 0.5)}>
+              ${baseFare * 0.5}
+            </Typography>
           ) : null}
           {airportFee ? <Typography variant="h6">$5.50</Typography> : null}
           <Typography variant="h6">${bridgeFee}</Typography>
-          <Typography variant="h6">${tips}</Typography>
-          <Typography variant="h6">${subTotal}</Typography>
-          <Typography variant="h6">${grandTotal}</Typography>
+          <Typography variant="h6" color={negativeRed(subTotal)}>
+            ${subTotal}
+          </Typography>
+          <Typography variant="h6" color={negativeRed(tips)}>
+            ${tips}
+          </Typography>
+          <Typography variant="h6" color={negativeRed(grandTotal)}>
+            ${grandTotal}
+          </Typography>
         </Grid>
       </Grid>
     </>
